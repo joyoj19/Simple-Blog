@@ -1,0 +1,35 @@
+<div class="intro">
+  <h3>Welcome to Lavender Lion!</h3>
+    <p class="intro">We love hearing about your favourite animals. Whether they are pets, wild animals,
+    fictional or fantasy, we want to know all about them.
+    <br>
+    Enjoy reading the articles, or create your very own account to share your stories too.
+    <br />We look forward to reading your stories and learning about your furry friends!</p>
+</div>
+<div class="card-grid">
+  {{#each allArticles}}
+    <div class="card">
+      <div>
+        <div class="card-header">
+          <a href="./article?id={{article_id}}"><img class="card-image" src="{{image_id}}" /></a>
+        </div>
+
+        <div class="card-body">
+          <a href="./article?id={{article_id}}">
+            <h2 class="card-title">{{title}}</h2>
+          </a>
+
+          <div class="card-text">
+            {{{content}}}
+          </div>
+          <p id="readMore"><strong><i><a href="./article?id={{article_id}}">Read more</a></i></strong></p>
+          <h3 class="date"><img class="avatar-small" src={{avatar_path}} />
+            <a href="./user?id={{user_id}}">{{first_name}} {{last_name}}</a>
+          </h3>
+          <h5>Published: {{date_published}}</h5>
+          <p>Likes: {{likes_count}} Views: {{view_count}} Comments: {{comment_count}}</p>
+        </div>
+      </div>
+    </div>
+  {{/each}}
+</div>

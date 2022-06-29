@@ -1,0 +1,27 @@
+<div class="container">
+
+    {{! Display a toast message if one was provided. }}
+    {{#if toastMessage}}
+    <p class="toast">{{toastMessage}}</p>
+    {{/if}}
+
+    <h1>Login</h1>
+    <form action="./login" method="POST">
+        <div class="textInput">
+            <label for="txtUsername" class="username">Username:</label>
+            <input type="text" name="username" id="txtUsername" required>
+        </div>
+
+        <div class="textInput">
+            <label for="txtPassword" class="password">Password:</label>
+            <input type="password" name="password" id="txtPassword" required>
+        </div>
+
+        <div class="login-btn-align">
+            <button class="button log-in" type="submit">Login</button>
+        </div>
+    </form>
+
+    <p>Don't have an account? <a href="./newAccount">Create one here.</a></p>
+
+</div>

@@ -1,0 +1,111 @@
+<script type="text/javascript" src="../js/new-account.js"></script>
+
+  {{! Display a message if one was provided. }}
+  {{#if toastMessage}}
+
+    <p class="toast">{{toastMessage}}</p>
+
+  {{/if}}
+
+<div class="container">
+
+  <h1>New Account</h1>
+  <form action="./newAccount" method="POST">
+    <div class="textLabel">
+
+      <label id="userExists" for="txtUsername">Username:</label><br />
+      <input type="text" class="text-box" name="username" id="txtUsername" required />
+
+    </div>
+
+    <div id="status"></div>
+
+    <div class="textLabel">
+      <label for="txtPassword">Password:</label><br />
+      <input type="password" class="text-box" name="password" id="txtPassword" required />
+    </div>
+
+    <div class="textLabel">
+      <label id="rePasswordLabel" for="txtRePassword">Re-enter Password:</label><br />
+      <input type="password" class="text-box" name="rePassword" id="txtRePassword" required />
+    </div>
+
+    <div class="textLabel">
+      <label for="txtfName">First Name:</label><br />
+      <input type="text" class="text-box" name="first_name" id="txtfName" required />
+    </div>
+
+    <div class="textLabel">
+      <label for="txtlName">Last Name:</label><br />
+      <input type="text" class="text-box" name="last_name" id="txtlName" required />
+    </div>
+
+    <div class="textLabel">
+      <label for="txtEmail">E-mail:</label><br />
+      <input type="email" class="text-box" name="email" id="txtEmail" required />
+    </div>
+
+    <div class="textLabel">
+      <label for="DateOfBirth">Date of birth:</label><br />
+      <input type="date" name="dob" id="DateOfBirth" min="1900-01-01" required />
+    </div>
+    <br />
+    <div class="textLabel">
+      <label for="txtDescrip">Brief description about yourself: </label><br />
+      <textarea name="description" class="text-box" id="mytextarea" placeholder="About you..."></textarea>
+    </div>
+    <p>Pick your avatar: </p>
+    <div class="avatar-div">
+
+      <input type="radio" name="avatar" id="arbok" value="./images/Arbok.png" required />
+      <label class="avatar-label" for="arbok">
+        <img class="avatar-small" src="./images/Arbok.png" alt="Arbok" class="avatar" />
+      </label>
+      <input type="radio" name="avatar" id="Blastoise" value="./images/Blastoise.png" required />
+      <label class="avatar-label" for="Blastoise">
+        <img class="avatar-small" src="./images/Blastoise.png" alt="Blastoise" class="avatar" />
+      </label>
+      <input type="radio" name="avatar" id="Charizard" value="./images/Charizard.png" required />
+      <label class="avatar-label" for="Charizard">
+        <img class="avatar-small" src="./images/Charizard.png" alt="Charizard" class="avatar" />
+      </label>
+      <input type="radio" name="avatar" id="Clefable" value="./images/Clefable.png" required />
+      <label class="avatar-label" for="Clefable">
+        <img class="avatar-small" src="./images/Clefable.png" alt="Clefable" class="avatar" />
+      </label>
+      <input type="radio" name="avatar" id="Dragonite" value="./images/Dragonite.png" required />
+      <label class="avatar-label" for="Dragonite">
+        <img class="avatar-small" src="./images/Dragonite.png" alt="Dragonite" class="avatar" />
+      </label>
+      <input type="radio" name="avatar" id="Jigglypuff" value="./images/Jigglypuff.png" required />
+      <label class="avatar-label" for="Jigglypuff">
+        <img class="avatar-small" src="./images/Jigglypuff.png" alt="Jigglypuff" class="avatar" />
+      </label>
+      <input type="radio" name="avatar" id="Lapras" value="./images/Lapras.png" required />
+      <label class="avatar-label" for="Lapras">
+        <img class="avatar-small" src="./images/Lapras.png" alt="Lapras" class="avatar" />
+      </label>
+      <input type="radio" name="avatar" id="Mewtwo" value="./images/Mewtwo.png" required />
+      <label class="avatar-label" for="Mewtwo">
+        <img class="avatar-small" src="./images/Mewtwo.png" alt="Mewtwo" class="avatar" required />
+      </label>
+      <input type="radio" name="avatar" id="Pikachu" value="./images/Pikachu.png" required />
+      <label class="avatar-label" for="Pikachu">
+        <img class="avatar-small" src="./images/Pikachu.png" alt="Pikachu" class="avatar" required />
+      </label>
+      <input type="radio" name="avatar" id="Snorlax" value="./images/Snorlax.png" required />
+      <label class="avatar-label" for="Snorlax">
+        <img class="avatar-small" src="./images/Snorlax.png" alt="Snorlax" class="avatar" required />
+      </label>
+      <input type="radio" name="avatar" id="Venusaur" value="./images/Venusaur.png" required />
+      <label class="avatar-label" for="Venusaur">
+        <img class="avatar-small" src="./images/Venusaur.png" alt="Venusaur" class="avatar" required />
+      </label>
+    </div>
+
+    <div class="flex-row justify-sb align-center">
+      <button class="button" type="submit" id="createAccount">Create account</button>
+    </div>
+  </form>
+
+</div>

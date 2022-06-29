@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://cdn.tiny.cloud/1/2duvd1mssrk5mmedk8zrcjkjsl144jskh7lcggqtfvr41evs/tinymce/5/tinymce.min.js"
+    referrerpolicy="origin"></script>
+
+  <script>
+    tinymce.init({
+      selector: 'textarea',
+      plugins: 'a11ychecker advcode casechange export formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
+      toolbar: 'undo redo | a11ycheck addcomment showcomments casechange checklist code export formatpainter pageembed permanentpen table',
+      toolbar_mode: 'floating',
+      tinycomments_mode: 'embedded',
+      tinycomments_author: 'Author name',
+    })
+  </script>
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./css/project-css.css">
+  <link rel="stylesheet" href="./css/main.css">
+
+  <meta charset="UTF-8" />
+  {{#if pageTitle}}
+  <title>{{pageTitle}}</title>
+  {{else}}
+  <title>Default title.</title>
+  {{/if}}
+
+</head>
+
+
+<body>
+
+  <div id="lion">
+    <img src="./images/Lavender-lion.jpg" alt="Lavender Lion Image" width="400px">
+  </div>
+
+  <div class="topnav">
+    <a href="/">Home</a>
+
+    {{#if login}}
+    <a href="newarticle">New Article</a>
+    <a href="./profile">My Profile</a>
+
+    {{#if admin}}
+    <a href="admin">Admin</a>
+    {{/if}}
+    <a href="./logout">Logout</a>
+
+    {{else}}
+    <a href="./login">Login</a>
+    <a href="./newAccount">New Account</a>
+    {{/if}}
+
+    <form id="form" role="search" action="./searchResults" method="POST">
+      <div>
+        <label for="search">Search Articles</label>
+        <input id="searchText" type="search" name="search" class="searchArticles" placeholder="Search..." required />
+        <button id="searchBtn">
+          <i class="fa fa-search"></i> </button>
+      </div>
+    </form>
+  </div>
+
+  {{{body}}}
+  <div class="footer">
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+<!--script for facebook button-->
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v12.0"
+  nonce="Gn6AqXuw"></script>
+<script src="./js/like-button.js"></script>
+<script src="./js/comments.js"></script>
+
+{{#if toastMessage}}
+<p class="toast">{{toastMessage}}</p>
+{{/if}}
+
+<div class="container">
+
+  <div class="article">
+    <a href="./article?id={{article_id}}">
+      <h1>{{title}}</h1>
+    </a>
+    <!--social media buttons-->
+    <div class="socialMedia">
+      <div class="fb-share-button socialBtn" data-href="http://localhost:3000/article" data-layout="button"
+        data-size="small"><a target="_blank"
+          href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A3000%2Farticle&amp;src=sdkpreparse"
+          class="fb-xfbml-parse-ignore">Share</a>
+      </div>
+      <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button socialBtn"
+        data-show-count="false">Tweet</a>
+      <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      <span class="socialBtn">
+        <script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
+      </span>
+      <script type="IN/Share" data-url="http://localhost:3000/article"></script>
+    </div>
+    <div class="articleImage">
+      <img class="image" alt="{{title}}" src="{{image_id}}" />
+    </div>
+
+    <!--Article information-->
+    <h4 class="author"><img class="avatar-small" src="{{author_avatar}}"><a href="./user?id={{author_id}}">
+        {{first_name}} {{last_name}}</a></h4>
+    <h5 class="published">Published {{date}}</h5>
+    {{{content}}}
+
+  </div>
+  <br>
+  <!--like button-->
+  {{#if liked}}
+  <span id="heart"><i class="fa fa-heart" aria-hidden="true"></i> Liked this article</span>
+  {{else}}
+  <span id="heart">
+    <a href="./likeArticle?id={{article_id}}">
+      <i class="fa fa-heart-o" aria-hidden="true"></i>
+    </a>
+    Like this article</span><br>
+  {{/if}}
+  
+  <!--like counts and view counts-->
+  <p>Likes: {{likes}} Views: {{views}}</p>
+
+  <!--Comment Section-->
+  <div class="comments">
+    <h2>Comments</h2>
+    {{#each comments}}
+    <div class="eachComment">
+      <div class="commentContent">{{{content}}}</div>
+      <p class="commenterInfo"><img class="avatar-xsmall" src="{{commenter_avatar}}"> {{username}} {{comment_date}} </p>
+      
+      <!--if logged in as admin-->
+      {{#if @root.admin}}
+      <button class="button comment" type="submit" id="btnConfirm"><a
+          href="./deleteComment?id={{comment_id}}">Delete</a></button>
+      {{/if}}
+
+      <!--if logged in-->
+      {{#if @root.user}}
+      <button class="button reply" id="btnReply">Reply</button>
+      <div class="replySec" id="replySection" style="display: none;">
+        <br>
+        <form action="./newReply" method="post">
+          <input name="commentId" style="display: none;" value={{comment_id}}>
+          <input name="articleId" style="display: none;" value={{article_id}}>
+          <textarea id="replyArea" name="replyContent"></textarea>
+          <button class="button" id="replyButton" type="submit">Submit</button>
+          <button class="button cancelReply" id="cancelReply" type="reset">Cancel</button>
+        </form>
+      </div>
+      {{/if}}
+    </div>
+    {{#each subComments}}
+    <div class="subComments" style="padding-left: 50px;">
+      <div class="commentContent">{{{content}}}</div>
+      <p class="commenterInfo"><img class="avatar-xsmall" src="{{commenter_avatar}}"> {{username}} {{comment_date}} </p>
+
+      {{#if @root.admin}}
+      <button class="button comment" type="submit" id="btnConfirm"><a
+          href="./deleteComment?id={{comment_id}}">Delete</a></button>
+      {{/if}}
+
+      <br>
+    </div>
+    {{/each}}
+    {{/each}}
+
+    <!--only logged in users can make comments-->
+    {{#if login}}
+    <br>
+    <form id="newComment" action="./newComment" method="POST">
+      <input name="articleId" style="display: none;" value={{article_id}}>
+      <textarea name="comment" id="mytextarea" placeholder="Write your comment here"></textarea>
+      <br>
+      <button class="button" type="submit">Submit Comment</button>
+    </form>
+    {{else}}
+    <p>Please log in to leave comments.</p>
+    {{/if}}
+  </div>
+</div>

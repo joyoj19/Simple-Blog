@@ -1,0 +1,29 @@
+<div>
+<h2 class="intro">Articles by {{first_name}} {{last_name}}</h2>
+<p class="intro">{{{description}}}</p>
+</div>
+<div class="card-grid">
+  {{#each usersArticles}}
+    <div class="card">
+      <div>
+        <div class="card-header">
+          <a href="./article?id={{article_id}}"><img class="card-image" src="{{image_id}}" /></a>
+        </div>
+
+        <div class="card-body">
+          <a href="./article?id={{article_id}}"><h1 class="card-title">{{title}}</h1></a>
+
+          <div class="card-text">
+            {{{content}}}
+          </div>
+          <p id="readMore"><strong><i><a href="./article?id={{article_id}}">Read more</a></i></strong></p>
+          <h3 class="date"><img class="avatar-small" src={{@root.avatar_path}} />
+            <a href="./user?id={{@root.user_id}}">{{@root.first_name}} {{@root.last_name}}</a>
+            {{date_published}}
+          </h3>
+          <p>Likes: {{likes_count}} Views: {{view_count}} Comments: {{comment_count}}</p>
+        </div>
+      </div>
+    </div>
+  {{/each}}
+</div>

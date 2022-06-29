@@ -1,0 +1,31 @@
+<div class="edit-container">
+    <h2>Edit Article - {{thisArticle.title}}</h2>
+    <div class="articleImage">
+        <img class="image" alt="{{thisArticle.title}}" src="{{thisArticle.image_id}}" />
+    </div>
+    <br>
+    <form id="updateArticle" action="./updateArticle" method="POST" enctype="multipart/form-data">
+        <div class="articleTitle" id="title-edit">
+            <label for="articleTitle">Edit Title:</label>
+            <input type="text" name="articleTitle" id="articleTitle" value="{{thisArticle.title}}" required>
+        </div><br>
+        <div>
+            <label for="imageFile">Upload a new image here!</label>
+            <input id="imageFile" type="file" name="imageFile" accept=".png,.jpg,.jpeg,.bmp" />
+
+        </div>
+        <br>
+        <div>
+            <textarea cols="50" rows="40" name="articleBody" id="articleBody">{{thisArticle.content}}</textarea>
+        </div>
+        <input style="display: none;" name="articleId" value="{{thisArticle.article_id}}">
+        <br>
+        <div class="submit">
+            <button class="button" type="submit">Submit Article</button>
+            <form action="./profile" method="get"> <button class="button">Cancel</button>
+            </form>
+        </div>
+
+    </form>
+
+</div>

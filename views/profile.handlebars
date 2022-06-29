@@ -1,0 +1,182 @@
+<script src="./js/profile.js"></script>
+
+{{! Display a message if one was provided. }}
+{{#if toastMessage}}
+<p class="toast">{{toastMessage}}</p>
+{{/if}}
+
+<div class="profile-container">
+    
+    <!--avatar div-->
+    <div class="column">
+        <div id="lcolumn">
+            <div class="avatar">
+                <img id="profile-avatar" src={{user.avatar_path}}>
+            </div>
+
+            <!--user info-->
+            <div id="user-info">
+                <h3>Personal Information</h3>
+                <p>Name: {{user.first_name}} {{user.last_name}}</p>
+                <p>Email: {{user.email}} </p>
+                <p>Date of birth: {{user.dob}} </p>
+                <p>Bio: {{{user.description}}}</p>
+
+                <button class="button" id="btn-editProfile">Edit Profile</button>
+                <button class="button" id="btn-deleteUser">Delete User</button>
+            </div>
+        </div>
+        <!-- The delete confirmation modal-->
+        <div id="deleteConfirm" class="modal">
+            <div class="modal-warning">
+                <span class="close" id="close-2">&times;</span>
+                <h2>Delete your account?</h2>
+                <p>Your articles and comments will be deleted too.</p>
+                <form id="delUser" action="./deleteUser" method="POST">
+                    <button class="button" type="submit" id="btnConfirm">Yes</button>
+                </form>
+                <button class="button" role="button" id="btnClose2">Cancel</button>
+            </div>
+        </div>
+
+        <!-- The Edit-Profile Modal -->
+        <div id="update-profile" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-form">
+                <div class="modal-header">
+                    <span class="close" id="close-1">&times;</span>
+                    <h2>Update Your Infomation:</h2>
+                    <p><img class="avatar-small" src={{user.avatar_path}} /> <strong>Username: {{user.username}}</strong></p>
+                </div>
+                <div>
+                    <form class="modal-body" action="./updateProfile" method="POST">
+                    
+                        <div class="update-info">
+                            <label for="newPassword">Password:</label><br>
+                            <input type="password" class="text-box" name="password" id="newPassword" required>
+                        </div>
+
+                        <div class="update-info">
+                            <label id="newRePasswordLabel" for="newRePassword">Re-enter Password:</label><br>
+                            <input type="password" class="text-box" name="rePassword" id="newRePassword" required>
+                        </div>
+
+                        <div class="update-info">
+
+                            <label for="newfName">First Name:</label><br>
+                            <input type="text" class="text-box" name="first_name" id="newfName" value={{user.first_name}}>
+                        </div>
+
+                        <div class="update-info">
+                            <label for="newlName">Last Name:</label><br>
+                            <input type="text" class="text-box" name="last_name" id="newlName" value={{user.last_name}}>
+                        </div>
+
+                        <div class="update-info">
+                            <label for="newEmail">E-mail:</label><br>
+                            <input type="email" class="text-box" name="email" id="newEmail" value={{user.email}}>
+                        </div>
+
+                        <div class="update-info">
+
+                            <label for="newDateOfBirth">Date of birth:</label><br>
+                            <input type="date" name="dob" id="DateOfBirth" min="1900-01-01" value={{user.dob}}><br>
+                        </div>
+
+                        <div class="update-info bio-text">
+                            <br>
+                            <label for="txtDescrip">Brief description about yourself: </label><p> {{{user.description}}}</p>
+                            <label for="mytextarea">Update my description:</label>
+                            <textarea name="description" class="text-box" id="mytextarea" placeholder="About you..."></textarea>
+                        </div>
+                        <p>Pick your new avatar: </p>
+                        <div class="avatar-div">
+
+                            <input type="radio" name="avatar" id="arbok" value="./images/Arbok.png">
+                            <label class="avatar-label" for="arbok"> 
+                                <img src="./images/Arbok.png" alt="Arbok" class="avatarThumbnail">
+                            </label>
+                            <input type="radio" name="avatar" id="Blastoise" value="./images/Blastoise.png">
+                            <label class="avatar-label" for="Blastoise">
+                                <img src="./images/Blastoise.png" alt="Blastoise" class="avatarThumbnail">
+                            </label>
+                            <input type="radio" name="avatar" id="Charizard" value="./images/Charizard.png">
+                            <label class="avatar-label" for="Charizard">
+                                <img src="./images/Charizard.png" alt="Charizard" class="avatarThumbnail">
+                            </label>
+                            <input type="radio" name="avatar" id="Clefable" value="./images/Clefable.png">
+                            <label class="avatar-label" for="Clefable">
+                                <img src="./images/Clefable.png" alt="Clefable" class="avatarThumbnail">
+                            </label>
+                            <input type="radio" name="avatar" id="Dragonite" value="./images/Dragonite.png">
+                            <label class="avatar-label" for="Dragonite">
+                                <img src="./images/Dragonite.png" alt="Dragonite" class="avatarThumbnail">
+                            </label>
+                            <input type="radio" name="avatar" id="Jigglypuff" value="./images/Jigglypuff.png">
+                            <label class="avatar-label" for="Jigglypuff">
+                                <img src="./images/Jigglypuff.png" alt="Jigglypuff" class="avatarThumbnail">
+                            </label>
+                            <input type="radio" name="avatar" id="Lapras" value="./images/Lapras.png">
+                            <label class="avatar-label" for="Lapras">
+                                <img src="./images/Lapras.png" alt="Lapras" class="avatarThumbnail">
+                            </label>
+                            <input type="radio" name="avatar" id="Mewtwo" value="./images/Mewtwo.png">
+                            <label class="avatar-label" for="Mewtwo">
+                                <img src="./images/Mewtwo.png" alt="Mewtwo" class="avatarThumbnail">
+                            </label>
+                            <input type="radio" name="avatar" id="Pikachu" value="./images/Pikachu.png">
+                            <label class="avatar-label" for="Pikachu">
+                                <img src="./images/Pikachu.png" alt="Pikachu" class="avatarThumbnail">
+                            </label>
+                            <input type="radio" name="avatar" id="Snorlax" value="./images/Snorlax.png">
+                            <label class="avatar-label" for="Snorlax">
+                                <img src="./images/Snorlax.png" alt="Snorlax" class="avatarThumbnail">
+                            </label>
+                            <input type="radio" name="avatar" id="Venusaur" value="./images/Venusaur.png">
+                            <label class="avatar-label" for="Venusaur">
+                                <img src="./images/Venusaur.png" alt="Venusaur" class="avatarThumbnail">
+                            </label>
+                        </div>
+
+                </div>
+                <div class="modal-footer ">
+                    <button class="button" role="button" type="submit" id="updateAccount">Update My Account</button>
+                    </form>
+                    <button class="button" role="button" id="btnClose1">Cancel</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!--list of articles written by user and ability to edit or delete-->
+        <div id="rcolumn">
+            <div id="articles">
+                <h1>My articles</h1>
+                {{#if myArticles}}
+                <table>
+                    {{#each myArticles}}
+                    <tr>
+                        <td class="list title"><a href="article?id={{article_id}}">{{title}}</a></td>
+                        <td class="list">{{date_published}}</td>
+                        <td class="list">
+                            <button class="button"><a href="./editArticle?id={{article_id}}">Edit</a></button>
+                        </td>
+                        <td>
+                            <button class="button"><a href="./deleteMyArticle?id={{article_id}}">Delete</a></button>
+                        </td>
+
+                    </tr>
+                    {{/each}}
+                </table>
+                {{else}}
+                {{!-- Articles column content if no articles by author --}}
+                 <h3>There is no published article.</h3>
+                 <h4>Publish your new article <a href="./newArticle" style="color: #CBC3E3;">here</a>.</h4>
+                {{/if}}
+            </div>
+        </div>
+
+    </div>
+
+</div>

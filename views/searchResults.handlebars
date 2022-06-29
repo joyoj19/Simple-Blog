@@ -1,0 +1,39 @@
+<script type="text/javascript" src="../js/search.js"></script>
+
+<div class="container">
+
+<h1 class="search-head">Search Results for "{{searchTerm}}"</h1>
+{{#if searchResult }}
+<div class="results">
+{{!-- Table of search results --}}
+  <table class="table" id="search-results">
+        <thead>
+           <tr>
+                <th></th>
+                <th>Title</th>
+                <th>Intro</th>
+                <th>Author</th>
+                <th id="date">Date published</th>
+                
+           </tr> 
+        </thead>
+        <tbody>
+            {{#each searchResult}}
+            <tr>
+              <td><a href="./article?id={{article_id}}"><img width="86" alt="{{title}}" src="{{image_id}}" alt="{{title}}"/></a></td>
+               <td><a href="./article?id={{article_id}}"><h5>{{title}}</h5></a></td>
+               <td id="truncate-search">{{{content}}}</td>
+               <td>{{{first_name}}} {{{last_name}}}</td>
+               <td id="date">{{date_published}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+ {{else}}
+ <h3 class="search-head">No articles or authors match your search</h3>
+{{/if}}
+
+</div>
+</div>
+    
+    

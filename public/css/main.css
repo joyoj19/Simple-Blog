@@ -1,0 +1,525 @@
+/*font style, heading colours and paragraph settings*/
+@import url('https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap');
+body {
+  font-family: 'Zen Kurenaido', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, b, strong {
+  color: purple;
+}
+
+p {
+  color: rgb(0, 0, 0);
+  text-align: justify;
+}
+
+
+#lion{
+  display: flex;
+  align-items: center;
+  justify-self: center;
+}
+/*nav bar*/
+
+.topnav {
+  position:sticky;
+  top:0;
+  z-index: 100;
+    background-color: #CBC3E3;
+    overflow: hidden;
+  }
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    float: left;
+    color: purple;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .topnav form {
+    float: right;
+    color: purple;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+  }
+   /* Change the color of navbar links on hover */
+   .topnav a:hover {
+    background-color: #dedbe6;
+    color: black;
+  }
+/*center toast messages*/
+.toast{
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/*general container for most pages*/
+.container{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: larger;
+  margin-top: 10px;
+  line-height: 1.5rem;   
+  width: auto; 
+  padding: 5% 10% 5% 10%;
+  flex-wrap: wrap;
+}
+
+/*styling for home page intro*/
+.intro {
+  display:flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: larger;
+  line-height: 1.5rem;   
+  width: auto; 
+  margin: 10px 80px 0px 80px;
+  padding: 0% 5% 1% 5%;
+  flex-wrap: wrap;
+}
+
+/*styling for cards*/
+.card-grid{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    column-gap: 30px;
+    row-gap: 30px;
+    flex-wrap: wrap;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+    
+.card{
+    border: 1px solid lightgray;
+    box-shadow:5px 5px 3px darkgray; 
+    transition:  .3s ease;     
+}
+
+.card:hover { 
+  transform: scale(1.05); 
+}
+
+.card-image{
+    width:100%;
+    max-height: 200px;
+    object-fit: cover;
+}
+.card-body{
+    margin: 0px 5px 5px 5px;  
+    padding: 10px;
+}
+.card-text {
+  display:-webkit-box;
+    line-height:1.3rem;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 420px;
+}
+#readMore{
+    text-align: right;
+}
+/*setting link colour*/
+a:link {
+  color: purple;
+}
+a {
+  text-decoration: none;
+}
+
+/*small avatar image next to name*/
+.avatar-small {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    vertical-align: middle;
+    border-radius: 50%;
+    padding: 10px;
+    background-color: #CBC3E3;
+}
+/*extra small avatar image next to commenter name*/
+.avatar-xsmall {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  vertical-align: middle;
+  border-radius: 50%;
+  padding: 2px;
+  border:solid 1px #CBC3E3;
+}
+
+/*avatars images for user selection*/
+.avatar-label {
+  cursor: pointer;
+  filter: grayscale(100%);
+}
+
+.avatar-label:hover {
+  filter: grayscale(0);
+}
+
+input[type="radio"]:checked+label {
+  filter: grayscale(0);
+}
+.avatarThumbnail {
+  width: 50px;
+  height: 50px;
+}
+/*Large Avatar Image on Profile*/
+#profile-avatar {
+  vertical-align: middle;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  padding: 10px;
+  background-color: #CBC3E3;
+}
+/*styling for grid of avatar images for selection*/
+.avatar-div {
+  display:grid;
+  align-items: center;
+    top: 0;
+    left: 0;
+    padding-bottom: 30px;
+    flex-wrap: wrap;
+    grid-template-columns: 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr;
+    row-gap: 10px;
+}
+
+/* Profile Page Container and columns */
+.profile-container {
+  margin: auto;
+  padding-top: 5%;
+ display:grid;
+grid-template-columns: 1fr;
+grid-template-rows: 2em;
+grid-template-areas: 
+"column" "column";
+}
+.column{
+  flex-direction: row;
+  display: flex;
+  justify-content: center;
+  grid-area: column ;
+  padding-bottom: 4em;
+  
+}  
+#lcolumn{
+  border: 1px solid lightgray;
+  box-shadow:5px 5px 3px darkgray; 
+  text-align: justify;
+  padding: 2em 1em 2em 1em;
+  display: flex;
+  margin: 1em;
+  grid-area: column ;
+  flex-direction: column;
+}
+#rcolumn{
+  border: 1px solid lightgray;
+  box-shadow:5px 5px 3px darkgray; 
+  text-align: start;
+  padding: 2em 1em 2em 1em;
+  display: flex;
+  margin: 1em;
+  grid-area: column ;
+  flex-direction: column;
+}
+/*profile page table of users articles*/
+.list {
+  padding: 8px;
+}
+#articles {
+  position: relative;
+  right: 0;
+}
+/*delete User styling*/
+#delUser {
+  float: left;
+  padding-right: 10px;
+}
+#btn-deleteUser {
+  background-color: #CBC3E3;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 101;
+  /* Sit on top */
+  padding-top: 50px;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow-x: scroll;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+/* Modal Content */
+.modal-warning, .modal-form {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  width: 800px;
+  /* Enable scroll if needed */
+  overflow-x: scroll;
+}
+.modal-header, .modal-footer {
+  padding-left: 10%;
+}
+.modal-body {
+  margin: auto;
+  padding-left: 20px;
+  width: 80%;
+}
+
+/* The Modal Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover, .close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+/*button styles*/
+#btnclose1, #btnclose2 {
+  float: right;
+}
+.button {
+  appearance: none;
+  background-color: #FAFBFC;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  box-sizing: border-box;
+  color: #24292E;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  list-style: none;
+  padding: 6px 16px;
+  position: relative;
+  transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+  word-wrap: break-word;
+}
+
+.button:hover {
+  background-color: #F3F4F6;
+  text-decoration: none;
+  transition-duration: 0.1s;
+}
+
+.button:disabled {
+  background-color: #FAFBFC;
+  border-color: rgba(27, 31, 35, 0.15);
+  color: #959DA5;
+  cursor: default;
+}
+
+.button:active {
+  background-color: #EDEFF2;
+  box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
+  transition: none 0s;
+}
+
+.button:focus {
+  outline: 1px transparent;
+}
+
+.button:before {
+  display: none;
+}
+
+.button:-webkit-details-marker {
+  display: none;
+}
+#replyButton{
+  margin-top:10px;
+}
+#commentSubmit{
+  margin-top: 10px;
+}
+.cancelReply{
+  margin-top: 10px;
+}
+.hide-navigation-item {
+  display: none !important;
+}
+
+
+/*article page style*/
+.article{
+  border: 1px solid lightgray;
+  box-shadow:5px 5px 3px darkgray;
+  padding: 10%;
+  width: 63vw; 
+}
+.image{
+  align-self: center;
+}
+
+/* like button*/
+#heart {
+  margin-bottom: 1em;
+}
+.fa-heart-o {
+  color: red;
+  cursor: pointer;
+}
+.fa-heart {
+  color: red;
+  cursor: pointer;
+}
+/*social link buttons*/
+.socialMedia{
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.username {
+  padding-right: 12px;
+}
+
+.password {
+  padding-right: 16px;
+}
+/*Comment section in article page*/
+.comments {
+  margin-top: 5%;
+  width: 70vw;
+  border: 1px solid lightgray;
+  box-shadow:5px 5px 3px darkgray;
+  padding: 5%; 
+}
+
+.eachComment {
+  border: 1px solid lightgray;
+  box-shadow:1px 1px 1px darkgray;
+  padding-top: 1%;
+  padding-left: 2%;
+  padding-bottom: 2%;
+}
+
+.commenterInfo {
+  font-size: medium;
+  font-style: normal;
+}
+
+.login-btn-align {
+  padding-top: 1rem;
+  padding-left: 12.5rem;
+}
+
+/* set text box width to match min TinyMCE width on New account page */
+.text-box {
+  width: 500px;
+}
+
+/*Responsiveness*/
+/* Card layout responsiveness */
+@media screen and (max-width: 1200px) and (min-width: 800px) {
+  .card-grid{
+   
+    grid-template-columns: repeat(2, 1fr);
+}
+}
+
+@media screen and (max-width: 800px){
+  .card-grid{
+    
+    grid-template-columns: repeat(1, 1fr);
+   
+}
+}
+
+/* Edit profile modal responsiveness */
+@media screen and (max-width: 700px) {
+  .bio-text {
+    width: 400px;
+  }
+  .avatar-div {
+    grid-template-columns: repeat(4, 80px);
+  }
+  .text-box {
+    width: 400px;
+  }
+  .topnav a {
+    float: none;
+    display: block;
+  }
+  .topnav {
+    position:static;
+
+    }
+
+  .intro{
+    display: none;
+visibility: hidden;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .text-box {
+    width: 300px;
+  }
+  .bio-text {
+    width: 300px;
+  }
+}
+
+  @media screen and (max-width: 500px) {
+    .text-box {
+      width: 200px;
+    }
+    .bio-text {
+      width: 200px;
+    }
+    .avatar-div {
+      grid-template-columns: repeat(2, 80px);
+    }
+    .avatar-div {
+      grid-template-columns: repeat(2, 80px);
+    }
+    
+    .column{
+      display: flex;
+      margin: 1em;
+      grid-area: column ;
+      flex-direction: column;
+  }
+ 
+}
