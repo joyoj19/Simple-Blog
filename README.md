@@ -75,9 +75,4 @@ Pikachu:  Password3!
 MistyMoo101:  Password4!
 champ99:  Password5!
 
-Note that user champ99 has not articles of their own
-
-**other instructions / comments**
-Additions we would have made if we had more time:
-set a min-max image size for the image upload to ensure a suitable image was chosen to display
-figure out how to code a hamburger fully collapsible navbar without bootstrap
+Note that user champ99 has no articles of their own
